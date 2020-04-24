@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Code Block Converter</title>
+        <style>
+
+        body{
+            background-color: tan;
+        }
+
+        #converter {
+            background-color:lightblue;
+            border:solid;
+            width:1000px;
+            margin: 100px 100px 0px 100px;
+            padding-left:30px;
+        }
+        #syntaxbox {
+            background-color: lightyellow;
+            border:solid;
+            width:1000px;
+            margin: 0px 100px 0px 100px;/**/
+            min-height: 60px;
+            padding-left:30px;
+        }
+        #images {
+           
+            width:1000px;
+            margin: 0px 100px 300px 100px;/**/
+            
+            padding-left:30px;
+        }
+        </style>
+        <script>
+          
+    
+
+        </script>
+    </head>
+    <body>
+        <div id="converter">
+        <h1>Code Block Converter</h1>
+        <form name="form1">
+            <label for="codeBlock">Choose a code block:</label>
+            <select id="codeBlock" name="codeBlock" onchange="displayText()">
+              <option value="enterCodeBlock">Enter Code Block</option>
+              <option value="doUntil">Do Until</option>
+              <option value="doWhile">Do While</option>
+              <option value="while">While</option>
+              <option value="for">For</option>              
+              <option value="if">If</option>
+              <option value="switch">Switch</option>
+              <option value="forEach">For Each</option>
+              <option value="function">Function</option>
+            </select><br>
+            <br>
+            <label for="language">Choose a language:</label>
+            <input type="radio" id="PowerShell" name="language" value="PowerShell" checked=true>
+            <label for="PowerShell">PowerShell</label>
+            <input type="radio" id="JavaScript" name="language" value="JavaScript" >
+            <label for="JavaScript">JavaScript</label>
+            <input type="radio" id="PHP" name="language" value="PHP">
+            <label for="PHP">PHP</label><br>
+            <script>
+                
+            </script>
+            
+            <br>
+            <input type="submit" onclick="DisplayCodeAndChangeColor()">
+            <input type='submit' value="clear" name="clear"><br><br>
+          </form>
+        </div>
+        
+        
+        <div id="syntaxbox">
+            <!--Insert code block-->
+            <span id="ps-do-until" style="display:none;">
+                <h3>The Syntax for a PowerShell do until loop</h3>
+                <pre>
+                    do{
+                        some code<br>
+                    }until(x -eq 0)
+                </pre>
+            </span>
+            <span id="ps-do-while" style="display:none;">
+                <h3>The Syntax for a PowerShell do while loop</h3>
+                <pre>
+                    do{
+                    
+                    }while (\$x -gt 0)  
+                </pre>
+            </span>
+            <span id="ps-while" style="display:none;">
+                <h3>The Syntax for a PowerShell while loop</h3>
+                <pre>
+                    while ($x -gt 0){
+    
+                    }
+                </pre>                
+            </span>
+        </div>
+        <div id="images">
+           <!--Insert image-->
+
+        </div>
+        <div id="x">
+
+        </div>
+    <script>
+      //document.getElementById("syntaxbox").style.backgroundColor = "red"; 
+      var bgColour;      
+      var syntaxbox = document.getElementById("syntaxbox");
+      //var lan = document.getElementById("codeBlock").nodeValue;
+        
+      document.getElementById('x').innerHTML = lan;    
+      
+     
+
+    function DisplayCodeAndChangeColor(){
+            
+        event.preventDefault()
+        var egCode = document.getElementById("codeBlock").nodeValue;
+        
+        if(document.getElementById("PowerShell").checked){
+            bgColour = "blue"
+            fontColour = "white";
+            
+            
+        }else if(document.getElementById("JavaScript").checked){
+            bgColour = "grey"
+            fontColour = "black";
+            
+        }else if(document.getElementById("PHP").checked){
+            bgColour = "purple"
+            fontColour = "white";
+            
+            
+        }else{
+            bgColour = "lightyellow"
+            fontColour = "black";
+            
+        }
+        syntaxbox.style.backgroundColor = bgColour;
+        syntaxbox.style.color = fontColour;
+        
+            
+    }
+    
+    function displayText(){
+    var lan = document.getElementById("codeBlock").value;
+    if(lan === "doUntil"){
+       
+    }else if(lan === "doWhile"){
+        document.getElementById("ps-do-while").style.display="block"
+    }else if(lan === "while"){
+        document.getElementById("ps-while").style.display='block'
+    }
+
+   }
+    </script>
+        
+    </body>
+</html>

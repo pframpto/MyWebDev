@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Code Block Converter</title>
+        <style>
+
+        body{
+            background-color: tan;
+        }
+
+        #converter {
+            background-color:lightblue;
+            border:solid;
+            width:1000px;
+            margin: 100px 100px 0px 100px;
+            padding-left:30px;
+        }
+        #syntaxbox {
+            background-color: lightyellow;
+            border:solid;
+            width:1000px;
+            margin: 0px 100px 0px 100px;/**/
+            min-height: 60px;
+            padding-left:30px;
+        }
+        #images {
+           
+            width:1000px;
+            margin: 0px 100px 300px 100px;/**/
+            
+            padding-left:30px;
+        }
+        </style>
+        <script>
+          
+    
+
+        </script>
+    </head>
+    <body>
+        <div id="converter">
+        <h1>Code Block Converter</h1>
+        <form name="form1">
+            <label for="codeBlock">Choose a code block:</label>
+            <select id="codeBlock" name="codeBlock" onchange="displayText()">
+              <option value="enterCodeBlock">Enter Code Block</option>
+              <option value="doUntil">Do Until</option>
+              <option value="doWhile">Do While</option>
+              <option value="while">While</option>
+              <option value="for">For</option>              
+              <option value="if">If</option>
+              <option value="switch">Switch</option>
+              <option value="forEach">For Each</option>
+              <option value="function">Function</option>
+            </select><br>
+            <br>
+            <label for="language">Choose a language:</label>
+            <input type="radio" id="PowerShell" name="language" value="PowerShell" checked=true>
+            <label for="PowerShell">PowerShell</label>
+            <input type="radio" id="JavaScript" name="language" value="JavaScript" >
+            <label for="JavaScript">JavaScript</label>
+            <input type="radio" id="PHP" name="language" value="PHP" >
+            <label for="PHP">PHP</label><br>
+            <script>
+                
+            </script>
+            
+            <br>
+            <input type="submit" onclick="DisplayCodeAndChangeColor()">
+            <input type='submit' value="clear" name="clear"><br><br>
+          </form>
+        </div>
+        
+        
+        <div id="syntaxbox">
+            <!--Insert code block-->
+            <span id="ps-do-until" style="display:none;">
+                <h3>The Syntax for a PowerShell do until loop</h3>
+                <pre>
+                    do{
+                        some code<br>
+                    }until(x -eq 0)
+                </pre>
+            </span>
+            <span id="ps-do-while" style="display:none;">
+                <h3>The Syntax for a PowerShell do while loop</h3>
+                <pre>
+                    do{
+                    
+                    }while (\$x -gt 0)  
+                </pre>
+            </span>
+            <span id="ps-while" style="display:none;">
+                <h3>The Syntax for a PowerShell while loop</h3>
+                <pre>
+                    while ($x -gt 0){
+    
+                    }
+                </pre>                
+            </span>
+            <span id="ps-for" style="display:none;">
+                <h3>The Syntax for a PowerShell for loop</h3>
+                <pre>
+                    for ($i = 1; $i -lt 99; $i++){ 
+    
+                    };
+                </pre>
+            </span>
+            <span id="ps-if" style="display:none;">
+                <h3>The Syntax for a PowerShell if statement</h3>
+                <pre>
+                    if ($x -lt $y){
+    
+                    }elseif($x -eq $y){
+                        
+                    }else{}
+                </pre>
+            </span>
+            <span id="ps-switch" style="display:none;">
+                <h3>The Syntax for a PowerShell Switch statement</h3>
+                <pre>
+                    switch ($x){
+                        'value1' {}        
+                        'value3' {}
+                        Default {}
+                    };
+                </pre>
+            </span>
+            <span id="ps-for-each" style="display:none;">
+                <h3>The Syntax for a PowerShell foreach</h3>
+                <pre>
+                    foreach ($item in $collection)
+                    {
+                        
+                    };
+                </pre>
+            </span>
+
+            <span id="ps-function" style="display:none;">
+                <h3>The Syntax for a PowerShell function block</h3>
+                <pre>
+                    function MyFunction ($param1, $param2){
+    
+                    }
+                </pre>
+            </span>
+
+            <!--JavaScript Starts here-->
+            <span id="js-do-until" style="display:none;">
+                <h2>There is no such thing.</h2>
+                <pre>
+
+                </pre>
+            </span>
+            <span id="js-do-while" style="display:none;">
+                <h3>The Syntax for a JavaScript do while loop</h3>
+                <pre>
+                    do {
+                        // code block to be executed
+                    }while (condition);
+                </pre>
+            </span>
+            <span id="js-while" style="display:none;">
+                <h3>The Syntax for a JavaScript while loop</h3>
+                <pre>
+                    while (condition) {
+                        // code block to be executed
+                    }
+                </pre>
+            </span>
+            <span id="js-for" style="display:none;">
+                <h3>The Syntax for a JavaScript for loop</h3>
+                <pre>                    
+                for (i = 0; i &lt 5; i++) {
+                    //code being looped
+                }
+                </pre>
+            </span>
+            <span id="js-if" style="display:none;">
+                <h3>The Syntax for a JavaScript if then else statement</h3>
+                <pre>
+                    if (condition1) {
+                        //  block of code to be executed if condition1 is true
+                        } else if (condition2) {
+                        //  block of code to be executed if the condition1 is false and condition2 is true
+                        } else {
+                        //  block of code to be executed if the condition1 is false and condition2 is false
+                    }
+                </pre>
+            </span>
+            <span id="js-switch" style="display:none;">
+                <h3>The Syntax for a JavaScript switch contruct</h3>
+                <pre>
+                    switch(expression) {
+                        case x:
+                          // code block
+                          break;
+                        case y:
+                          // code block
+                          break;
+                        default:
+                          // code block
+                    }   
+                </pre>
+            </span>
+            <span id="js-for-each" style="display:none;">
+                <h3>The Syntax for a JavaScript for each loop </h3>
+                <pre>
+                    In JavaScript there is for in for objects and for of for arrays strings etc.
+                    var person = {fname:'John', lname:'Doe', age:25};
+                    var text = '';
+                    var x;
+                    for (x in person) {
+                    text += person[x];
+                    }
+
+                    var cars = ['BMW', 'Volvo', 'Mini'];
+                    var x;
+                    for (x of cars) {
+                    document.write(x + '&ltbr&gt');
+                    }
+                </pre>
+            </span>
+            <span id="js-function" style="display:none;">
+                <h3>The Syntax for a JavaScript function block</h3>
+                <pre>
+                    function myFunction(p1, p2) {
+                        return p1 * p2;   // The function returns the product of p1 and p2
+                    }
+                </pre>
+            </span>
+
+            <!--PHP Starts here-->
+            <span id="php-do-until" style="display:none;">
+                <h3>There is no such thing as a PHP do until loop</h3>
+                
+            </span>
+            <span id="php-do-while" style="display:none;">
+                <h3>The Syntax for a PHP do while loop</h3>
+                <pre>
+                    do {
+                        code to be executed;
+                    } while (condition is true);";                   
+                    
+                </pre>
+            </span>
+            <span id="php-while" style="display:none;">
+                <h3>The Syntax for a PHP while loop</h3>
+                <pre>
+                    while (condition is true) {
+                        code to be executed;
+                    }
+                </pre>
+            </span>
+            <span id="php-for" style="display:none;">
+                <h3>The Syntax for a PHP for loop</h3>
+                <pre>
+                    for (init counter; test counter; increment counter) {
+                        code to be executed for each iteration;
+                    }
+                </pre>
+            </span>
+            <span id="php-if" style="display:none;">
+                <h3>The Syntax for a PHP if statement </h3>
+                <pre>
+                    if (condition) {
+                        code to be executed if this condition is true;
+                    } elseif (condition) {
+                        code to be executed if first condition is false and this condition is true;
+                    } else {
+                        code to be executed if all conditions are false;
+                    }  
+                </pre>
+            </span>
+            <span id="php-switch" style="display:none;">
+                <h3>The Syntax for a PHP switch construct</h3>
+                <pre>
+                    switch (n) {
+                        case label1:
+                            code to be executed if n=label1;
+                            break;
+                        case label2:
+                            code to be executed if n=label2;
+                            break;
+                        case label3:
+                            code to be executed if n=label3;
+                            break;
+                        ...
+                        default:
+                            code to be executed if n is different from all labels;
+                    }   
+                </pre>
+            </span>
+            <span id="php-for-each" style="display:none;">
+                <h3>The Syntax for a PHP for each loop</h3>
+                <pre>
+                    foreach ($array as $value) {
+                        code to be executed;
+                    } 
+                </pre>
+            </span>
+            <span id="php-function" style="display:none;">
+                <h3>The Syntax for a PHP function statement</h3>
+                <pre>
+                    function functionName() {
+                        code to be executed;
+                    }  
+                </pre>
+            </span> 
+
+        </div>
+        <div id="images">
+           <!--Insert image-->
+
+        </div>
+        
+    <script>
+      //document.getElementById("syntaxbox").style.backgroundColor = "red"; 
+      var bgColour;      
+      var syntaxbox = document.getElementById("syntaxbox");
+      var codeVal;
+      var codeLang;
+        
+         
+      
+      function displayText(){
+        codeVal = document.getElementById("codeBlock").value;
+      }
+      console.log(codeVal)
+    function DisplayCodeAndChangeColor(){
+            
+        event.preventDefault()
+        
+       
+
+        function storeBlock(){
+            var codeVal = document.getElementById("codeBlock").value;
+        }
+        if(document.getElementById("PowerShell").checked){
+            bgColour = "blue"
+            fontColour = "white";
+            codeLang = "PS"
+            
+            
+        }else if(document.getElementById("JavaScript").checked){
+            bgColour = "grey"
+            fontColour = "black";
+            codeLang = "JS"
+            
+        }else if(document.getElementById("PHP").checked){
+            bgColour = "purple"
+            fontColour = "white";
+            codeLang = "PHP"
+            
+            
+        }else{
+            bgColour = "lightyellow"
+            fontColour = "black";
+            codeLang = ""
+        }
+        syntaxbox.style.backgroundColor = bgColour;
+        syntaxbox.style.color = fontColour;
+
+        var myBlocks = ["ps-do-until","ps-do-while", "ps-while", "ps-for", "ps-if", "ps-switch", "ps-for-each", "ps-function","js-do-until","js-do-while", "js-while", "js-for", "js-if", "js-switch", "js-for-each", "js-function","php-do-until","php-do-while", "php-while","php-for", "php-if", "php-switch", "php-for-each", "php-function"];
+
+            //console.log(myBlocks)
+            for(myBlock of myBlocks){
+                //console.log(myBlock)
+                //document.getElementById(myBlocks[myBlock]).style.display="none";
+                document.getElementById(myBlock).style.display="none";
+            }
+
+        if( codeLang === "PS" && codeVal === "doUntil"){
+            document.getElementById("ps-do-until").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/ps-do-until.png'>"
+        }else if( codeLang === "PS" && codeVal === "doWhile"){
+            document.getElementById("ps-do-while").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/ps-do-while.png'>"
+        }else if(codeLang === "PS" && codeVal === "while"){
+            document.getElementById("ps-while").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/ps-while.png'>"
+        }else if(codeLang === "PS" && codeVal === "for"){
+            document.getElementById("ps-for").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/ps-for.png'>"
+        }else if(codeLang === "PS" && codeVal === "if"){
+            document.getElementById("ps-if").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/ps-if.png'>"
+        }else if(codeLang === "PS" && codeVal === "switch"){
+            document.getElementById("ps-switch").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/ps-switch.png'>"
+        }else if(codeLang === "PS" && codeVal === "forEach"){
+            document.getElementById("ps-for-each").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/ps-for-each.png'>"
+        }else if(codeLang === "PS" && codeVal === "function"){
+            document.getElementById("ps-function").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/ps-function.png'>"
+        }else if(codeLang === "JS" && codeVal === "doUntil"){
+            document.getElementById("js-do-until").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/js-do-until.png'>"
+        }else if(codeLang === "JS" && codeVal === "doWhile"){
+            document.getElementById("js-do-while").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/js-do-while.png'>"
+        }else if(codeLang === "JS" && codeVal === "while"){
+            document.getElementById("js-while").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/js-while.png'>"
+        }else if(codeLang === "JS" && codeVal === "for"){
+            document.getElementById("js-for").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/js-for.png'>"
+        }else if(codeLang === "JS" && codeVal === "if"){
+            document.getElementById("js-if").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/js-if.png'>"
+        }else if(codeLang === "JS" && codeVal === "switch"){
+            document.getElementById("js-switch").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/js-switch.png'>"
+        }else if(codeLang === "JS" && codeVal === "forEach"){
+            document.getElementById("js-for-each").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/js-for-each.png'>"
+        }else if(codeLang === "JS" && codeVal === "function"){
+            document.getElementById("js-function").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/js-function.png'>"
+        }else if(codeLang === "PHP" && codeVal === "doUntil"){
+            document.getElementById("php-do-until").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/js-do-until.png'>"
+        }else if(codeLang === "PHP" && codeVal === "doWhile"){
+            document.getElementById("php-do-while").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/php-do-while.png'>"
+        }else if(codeLang === "PHP" && codeVal === "while"){
+            document.getElementById("php-while").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/php-while.png'>"
+        }else if(codeLang === "PHP" && codeVal === "for"){
+            document.getElementById("php-for").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/php-for.png'>"
+        }else if(codeLang === "PHP" && codeVal === "if"){
+            document.getElementById("php-if").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/php-if.png'>"
+        }else if(codeLang === "PHP" && codeVal === "switch"){
+            document.getElementById("php-switch").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/php-switch.png'>"
+        }else if(codeLang === "PHP" && codeVal === "forEach"){
+            document.getElementById("php-for-each").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/php-for-each.png'>"
+        }else if(codeLang === "PHP" && codeVal === "function"){
+            document.getElementById("php-function").style.display="block"
+            document.getElementById('images').innerHTML = "<img src='http://localhost:8000/wp-content/uploads/2020/04/php-function.png'>"
+        }                                                         
+    }
+    
+    
+    </script>
+        
+    </body>
+</html>
